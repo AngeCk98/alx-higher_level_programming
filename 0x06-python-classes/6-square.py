@@ -41,7 +41,7 @@ class Square:
                 """Sets the position of private attribute size
                 Args:
                     value (int): new value of size"""
-                    if not (isinstance(value, tuple) or
+                if not (isinstance(value, tuple) or
                     len(value) != 2 or
                     not all(isinstance(elem, int) for elem in value) or
                     not all(elem >= 0 for elem in value)):
@@ -55,11 +55,11 @@ class Square:
     def my_print(self):
             """Print a square with '#' characters"""
             if self.__size == 0:
-            print("")
-            return
+                print("")
+                return
 
         [print("") for i in range(0, self.__position[1])]
-            for i in range(0, self.__size):
+        for i in range(0, self.__size):
             [print(" ", end="") for j in range(0, self.__position[0])]
             [print("#", end="") for k in range(self.__size)]
         print("")
