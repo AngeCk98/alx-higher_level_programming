@@ -1,17 +1,41 @@
 #!/usr/bin/python3
-Square = __import__('6-square').Square
+"""Define a square"""
 
-my_square_1 = Square(3)
-my_square_1.my_print()
 
-print("--")
+class Square:
+    """Represent a new square"""
+    def __init__(self, size=0):
+        """Initialize a new square.
+        Args:
+        size (int): instance attribute"""
+        self.__size = size
 
-my_square_2 = Square(3, (1, 1))
-my_square_2.my_print()
+    @property
+    def size(self):
+        """Gets the value of private attribute size"""
+        return self.__size
 
-print("--")
+    @size.setter
+    def size(self, value):
+        """Changes value of private attribute size
+        Args:
+            value (int): new value of size"""
+        self.__size = value
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        return (value)
 
-my_square_3 = Square(3, (3, 0))
-my_square_3.my_print()
+     def area(self):
+            """Return the square area"""
+            return (self.__size * self.__size)
 
-print("--")
+        def my_print(self):
+            """Print square as '#'"""
+            for i in range(0, self.__size):
+                [print("#", end="") for j in range(self.__size)]
+                print()
+            if self.__size == 0:
+                print()
+
